@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int ArraySize;
+	cout<<"Enter size of Array:"<<"\n";
+	cin>>ArraySize;//get the size of the array
+	int first=0,   last=ArraySize-1; // set the first and last index of array
+	
+	int Array[ArraySize];
+	cout<<"Input Array of size "<<ArraySize<<":"<<"\n";
+	
+	for(int i=0;i<ArraySize;i++){ 
+		cin>>Array[i];
+	}//user input array
+	
+	int search;
+	cout<<"Enter search Element"<<"\n";
+	cin>>search;//get the searching element
+	
+	while(first<=last){
+		
+		int mid=last+((first-last)/2); //get the middle element
+		
+		if(Array[mid]==search){
+			cout<<"Element found "<<Array[mid]<<" on index "<<mid<<"\n";
+			return 0; //end the program if we get the index
+		}
+		if (Array[mid]<=search){
+			first=mid+1; //if the search element is greater than the mid element then the number must be in left side of the arry
+		}
+		else{
+			last=mid-1; //if the search elemnt is small than the mid element then the number must be in right side of the arry
+		}	
+	}
+	cout<<"Not found"<<-1;//print it when the index is not found
+	return 0;
+}
